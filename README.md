@@ -14,9 +14,13 @@ wahpa
 *   name of the extension
     *   candidates: wahpa, saveinmd
 1.  now
+    *   [done][22 November 2013] get tags
     *   edit (add tags etc.)
     *   store
 1.  later
     *   shortcut
+    *   make it beautiful
 1.  might
     *   integrate with cloud service (or a server and frontend lol)
+1.  anyway
+    *   create sublimetext command to add this -> [done][22 November 2013]
