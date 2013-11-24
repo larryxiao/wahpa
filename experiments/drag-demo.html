@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    </head>
+    <body>
+        <div class='items'>
+            <div class="one">One</div>
+            <div class="two">Two</div>
+        </div>
+
+        <h3 class="list-heading">heading 1</h3>
+        <div class="content">
+            <div class="block">Foo 1</div>
+            <div class="block">Bar 1</div>
+        </div>
+        <h3 class="list-heading">heading 2</h3>
+        <div class="content">
+            <div class="block">Foo 2</div>
+            <div class="block">Bar 2</div>
+        </div>
+        <h3 class="list-heading">heading 3</h3>
+        <div class="content">
+            <div class="block">Foo 3</div>
+            <div class="block">Bar 3</div>
+        </div>
+        <h3 class="list-heading">heading 4</h3>
+        <div class="content">
+            <div class="block">Foo 4</div>
+            <div class="block">Bar 4</div>
+        </div>
+        <h3 class="list-heading">heading 5</h3>
+        <div class="content">
+            <div class="block">Foo 5</div>
+            <div class="block">Bar 5</div>
+        </div>
+
+        <SCRIPT TYPE="text/javascript">
+            $('.items div').draggable({
+                helper: function(e) {
+                    return $('<div>').addClass('block').text( $(e.target).text() );
+                },
+                connectToSortable: ".content"
+            });
+            $('.content div').draggable({
+                helper: function(e) {
+                    return $('<div>').addClass('block').text( $(e.target).text() );
+                },
+                connectToSortable: ".content"
+            });
+            $('.content').sortable({
+                placeholder: 'block-placeholder',
+                update: function (event, ui) {
+                    // turn the dragged item into a "block"
+                    ui.item.addClass('block');
+                }
+            });
+        </SCRIPT>
+    </body>
+</html>

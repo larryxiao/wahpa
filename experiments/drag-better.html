@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <style type="text/css">
+    ul
+    {
+        list-style-type: none;
+    }
+    </style>
+</head>
+<body>
+    <!-- TODO -->
+    <!-- unsorted -->
+    <!-- new tag -->
+    <!-- batch edit -->
+
+    <div id="container">
+        <ul class="sortable">
+            <h3 class="list-heading">#### heading</h3>
+            <li>* List Item 1</li>
+            <li>* List Item 2</li>
+            <li>* List Item 3</li>
+        </ul>
+
+        <ul class="sortable">
+            <h3 class="list-heading">#### heading</h3>
+            <li>* List Item 4</li>
+            <li>* List Item 5</li>
+            <li>* List Item 6</li>
+        </ul>
+    </div>
+    <input type="button" id="filter" name="filter" value="Filter" />
+    <input type="button" id="output" name="output" value="output" />
+    <SCRIPT TYPE="text/javascript">
+    function driver () {
+        $(".sortable").sortable({
+            receive: function (event, ui) {
+                ui.item.remove();
+            }
+        });
+
+        $(".sortable li").draggable({
+            connectToSortable: ".sortable",
+            helper: "clone",
+            revert: "invalid"
+        });
+    }
+    </SCRIPT>
+    <script type="text/javascript">
+    $(function(){
+        driver();
+        $("#filter").click(function(){
+                    // alert('clicked!');
+                    var person=prompt("Please enter your tag","WAHPA!");
+                    $('#container').append(
+                        "<ul class='sortable'><h3 class='list-heading'>### "+person+"</h3><li>* List Item 1</li><li>* List Item 2</li><li>* List Item 3</li></ul>"
+                        );
+                    driver();
+                });
+        $("#output").click(function() {
+            // var output = "<pre>";
+            var output = "";
+            $( "ul" ).children().each(function( index, elem ) {
+                // console.log( "### " + elem );
+                // $.each(elem, function( index, e ) {
+                //     if ( index == 0) {
+                //         console.log( "### " + e );
+                //     }else{
+                //         console.log( "* " + e );
+                //     }
+                // });
+            output += $( this ).text() + "<br>";
+            // $.trim($( this ).text())
+            console.log( $( this ).text() );
+            // console.log( $( this ).text().replace('     ','') );
+            // console.log( index + ": " + $( this ).text() );
+        });
+            // output += "</pre>";
+            // alert(output);
+            // window.open("file2.html");
+            var w = window.open();
+            $(w.document.body).html(output);
+        })
+    });
+</script>
+</body>
+</html>

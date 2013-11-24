@@ -12,5 +12,11 @@
     "default_title": "show tab",
     "default_popup": "popup.html"
   },
+
+  "content_scripts": [ {
+    "js": [ "jquery-ui.js", "jquery-1.9.1.js" ],
+    "matches": [ "http://*/*", "https://*/*"]
+  }],
+
   "manifest_version": 2
 }

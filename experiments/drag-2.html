@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <style type="text/css">
+            .items{float:left;}
+            .items div{width:50px;background:#444;color:#fff;margin-bottom:4px;padding:6px;text-align:center}
+
+            .content{width:500px;min-height:500px;background:#eee;position:absolute;left:70px;padding:10px}
+
+            .items .block,
+            .content .block{height:100px!important;background:#bbb;margin-bottom:10px;width:500px;color:#000}
+
+            /* style the sortable placeholder */
+            .content .block-placeholder{height:98px!important;border:1px dotted black;margin-bottom:10px;width:498px;}
+        </style>
+    </head>
+    <body>
+        <div class='items'>
+            <div class="one">One</div>
+            <div class="two">Two</div>
+        </div>
+
+        <div class="content">
+            <div class="block">Foo</div>
+            <div class="block">Bar</div>
+        </div>
+
+        <SCRIPT TYPE="text/javascript">
+            $('.items div').draggable({
+                helper: function(e) {
+                    return $('<div>').addClass('block').text( $(e.target).text() );
+                },
+                connectToSortable: ".content"
+            });
+                
+            $('.content').sortable({
+                placeholder: 'block-placeholder',
+                update: function (event, ui) {
+                    // turn the dragged item into a "block"
+                    ui.item.addClass('block');
+                }
+            });
+        </SCRIPT>
+    </body>
+</html>

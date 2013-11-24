@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Draggable + Sortable</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+    ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+    li { margin: 5px; padding: 5px; width: 150px; }
+    </style>
+    <script>
+    $(function() {
+        $( ".sortable" ).sortable({
+            revert: false
+        });
+        $( ".draggable" ).draggable({
+            connectToSortable: ".sortable",
+            // helper: "clone",
+            revert: "invalid"
+        });
+        $( "ul, li" ).disableSelection();
+    });
+    </script>
+</head>
+<body>
+    <ul>
+        <li class="draggable ui-state-highlight">Drag me down 0</li>
+        <li class="draggable ui-state-highlight">Drag me down 1</li>
+        <li class="draggable ui-state-highlight">Drag me down 2</li>
+        <li class="draggable ui-state-highlight">Drag me down 3</li>
+        <li class="draggable ui-state-highlight">Drag me down 4</li>
+        <li class="draggable ui-state-highlight">Drag me down 5</li>
+        <li class="draggable ui-state-highlight">Drag me down 6</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 1</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 2</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 3</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 4</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 5</li>
+    </ul>
+    <ul class="sortable">
+        <p></p>
+        <li>TAG 6</li>
+    </ul>
+
+<hr>
+<style type="text/css">
+.list-heading {
+    font-weight: normal;
+}
+</style>
+    <h3 class="list-heading">heading</h3>
+
+    <ul> 
+        <li>list item </li>
+        <li>list item </li>
+        <li>list item </li>
+    </ul>
+</body>
+</html>
