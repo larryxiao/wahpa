@@ -2,7 +2,7 @@
   "name": "Wahpa",
   "description": "use markdown to manage bookmarks",
   "version": "0.3",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "clipboardWrite"],
   // "background": {
   //   "persistent": false,
   //   "scripts": ["background.js"]
